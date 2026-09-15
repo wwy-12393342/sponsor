@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#0b0d12">
+<title>赞助 · 小薇</title>
+<meta name="description" content="小薇 是一个完全公益、为爱发电的 QQ 机器人，欢迎赞助支持。">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💛</text></svg>">
+<style>
+  :root{
+    --bg:#0b0d12;--bg-soft:#141922;--bg-elv:#1a212c;--divider:#232c39;
+    --text-1:#e8eef6;--text-2:#9aa7b8;--text-3:#6b7887;
+    --brand:#3fb950;--brand-2:#56d364;
+    --brand-soft:rgba(63,185,80,.14);--brand-line:rgba(63,185,80,.34);
+    --warm:#f6c445;--warm-2:#ffd97a;
+    --warm-soft:rgba(246,196,69,.13);--warm-line:rgba(246,196,69,.34);
+    --radius:16px;--shadow:0 14px 40px -18px rgba(0,0,0,.9);
+  }
+  html[data-theme="light"]{
+    --bg:#fff;--bg-soft:#f5f7fa;--bg-elv:#eceff4;--divider:#e3e8ee;
+    --text-1:#151c25;--text-2:#55616f;--text-3:#8a94a1;
+    --brand:#1f883d;--brand-2:#1a7f37;
+    --brand-soft:rgba(31,136,61,.09);--brand-line:rgba(31,136,61,.26);
+    --warm:#b8860b;--warm-2:#a1770a;
+    --warm-soft:rgba(184,134,11,.09);--warm-line:rgba(184,134,11,.26);
+    --shadow:0 14px 34px -20px rgba(20,30,50,.4);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+  body{background:var(--bg);color:var(--text-1);font-size:16px;line-height:1.78;
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;
+    -webkit-font-smoothing:antialiased;transition:background .25s,color .25s;overflow-x:hidden}
+  a{color:var(--brand);text-decoration:none}
+  a:hover{color:var(--brand-2)}
+  b,strong{color:var(--text-1);font-weight:650}
+
+  .nav{position:sticky;top:0;z-index:40;height:60px;display:flex;align-items:center;gap:11px;
+    padding:0 20px;background:color-mix(in srgb,var(--bg) 85%,transparent);
+    backdrop-filter:saturate(180%) blur(14px);-webkit-backdrop-filter:saturate(180%) blur(14px);
+    border-bottom:1px solid var(--divider)}
+  .logo{width:28px;height:28px;border-radius:9px;flex-shrink:0;
+    background:linear-gradient(135deg,var(--warm),#d99a12);
+    display:flex;align-items:center;justify-content:center;font-weight:800;font-size:13px;color:#241a02;
+    box-shadow:0 0 0 1px var(--warm-line),0 4px 14px -6px var(--warm)}
+  .site{font-weight:750;font-size:15.5px;letter-spacing:.2px}
+  .nav .sp{flex:1}
+  .icon-btn{background:none;border:1px solid transparent;color:var(--text-2);cursor:pointer;
+    width:34px;height:34px;border-radius:9px;display:flex;align-items:center;justify-content:center;
+    transition:.2s;flex-shrink:0}
+  .icon-btn:hover{background:var(--bg-soft);color:var(--text-1);border-color:var(--divider)}
+
+  .wrap{max-width:760px;margin:0 auto;padding:0 20px 80px}
+
+  .hero{position:relative;text-align:center;padding:68px 16px 52px;overflow:hidden}
+  .orb{position:absolute;border-radius:50%;filter:blur(62px);opacity:.55;pointer-events:none}
+  .orb-a{width:330px;height:330px;background:rgba(246,196,69,.40);top:-140px;left:-80px;animation:f1 14s ease-in-out infinite}
+  .orb-b{width:280px;height:280px;background:rgba(63,185,80,.26);top:-60px;right:-90px;animation:f2 17s ease-in-out infinite}
+  .orb-c{width:230px;height:230px;background:rgba(56,139,253,.20);bottom:-140px;left:45%;animation:f1 20s ease-in-out infinite reverse}
+  @keyframes f1{0%,100%{transform:translate(0,0)}50%{transform:translate(26px,20px)}}
+  @keyframes f2{0%,100%{transform:translate(0,0)}50%{transform:translate(-28px,16px)}}
+  .hero>*{position:relative;z-index:1}
+  .heart{width:74px;height:74px;margin:0 auto 18px;border-radius:24px;
+    background:linear-gradient(140deg,var(--warm),#e09b12 60%,#c98207);
+    display:flex;align-items:center;justify-content:center;font-size:34px;
+    box-shadow:0 0 0 1px var(--warm-line),0 18px 44px -16px var(--warm);
+    animation:pop .85s cubic-bezier(.2,.9,.3,1) both}
+  @keyframes pop{from{opacity:0;transform:scale(.8) translateY(12px)}to{opacity:1;transform:none}}
+  .hero h1{font-size:clamp(32px,7vw,46px);font-weight:800;letter-spacing:1px;line-height:1.2;
+    background:linear-gradient(120deg,var(--warm-2),var(--warm) 48%,#e0a92a);
+    -webkit-background-clip:text;background-clip:text;color:transparent;margin-bottom:14px}
+  .hero .sub{color:var(--text-2);font-size:15px;letter-spacing:.4px}
+  .hero .line{width:64px;height:3px;border-radius:2px;margin:20px auto 0;
+    background:linear-gradient(90deg,transparent,var(--warm),transparent)}
+
+  .card{background:var(--bg-soft);border:1px solid var(--divider);border-radius:var(--radius);
+    padding:26px;margin-bottom:18px;transition:.24s}
+  .card:hover{border-color:var(--warm-line)}
+  h2{font-size:18px;font-weight:750;letter-spacing:.2px;color:var(--text-1);
+    display:flex;align-items:center;gap:9px;margin-bottom:16px}
+  h2::before{content:"";width:3px;height:17px;border-radius:2px;
+    background:linear-gradient(180deg,var(--warm),#d99a12);box-shadow:0 0 10px var(--warm-line)}
+  p{color:var(--text-2);margin-bottom:14px;line-height:1.85}
+  p:last-child{margin-bottom:0}
+
+  .declare{background:linear-gradient(150deg,var(--warm-soft),transparent 65%);border-color:var(--warm-line)}
+  .declare p{font-size:15.5px}
+
+  .costs{display:grid;gap:12px;grid-template-columns:repeat(auto-fill,minmax(190px,1fr))}
+  .cost{background:var(--bg-elv);border:1px solid var(--divider);border-radius:13px;
+    padding:17px 15px;transition:.24s;display:flex;gap:12px;align-items:flex-start}
+  .cost:hover{border-color:var(--warm-line);transform:translateY(-3px);box-shadow:var(--shadow)}
+  .cost .ico{font-size:22px;line-height:1.1;flex-shrink:0}
+  .cost b{display:block;font-size:14.5px;font-weight:700;margin-bottom:5px}
+  .cost span{font-size:12.5px;color:var(--text-3);line-height:1.6;display:block}
+
+  .pay{text-align:center}
+  .qr-wrap{position:relative;display:inline-block;margin:8px auto 18px;padding:14px;border-radius:24px;
+    background:linear-gradient(140deg,var(--warm-soft),transparent 70%);
+    border:1px solid var(--warm-line);box-shadow:0 18px 48px -22px var(--warm);
+    transition:transform .35s cubic-bezier(.2,.8,.25,1),box-shadow .35s}
+  .qr-wrap:hover{transform:translateY(-4px);box-shadow:0 26px 56px -24px var(--warm)}
+  .qr-wrap:active{transform:scale(.975)}
+  .qr{width:min(260px,64vw);aspect-ratio:1/1;background:#fff;border-radius:16px;
+    padding:10px;display:block;cursor:pointer}
+  .qr img{width:100%;height:100%;display:block;border-radius:10px;object-fit:contain}
+  .qr-wrap .tag{position:absolute;top:-11px;left:50%;transform:translateX(-50%);
+    font-size:11.5px;font-weight:700;letter-spacing:.5px;color:#241a02;
+    background:linear-gradient(135deg,var(--warm),#e0a92a);padding:4px 13px;border-radius:999px;
+    white-space:nowrap;box-shadow:0 6px 16px -8px var(--warm)}
+  .pay .nm{font-size:15.5px;font-weight:700;margin-bottom:5px}
+  .pay .hint{font-size:13px;color:var(--text-3)}
+
+  .acts{display:flex;gap:11px;justify-content:center;flex-wrap:wrap;margin:20px 0 0}
+  .btn{display:inline-flex;align-items:center;gap:7px;font-family:inherit;font-size:14px;
+    font-weight:650;cursor:pointer;padding:11px 19px;border-radius:11px;transition:.2s;
+    border:1px solid var(--divider);background:var(--bg-elv);color:var(--text-1);
+    -webkit-tap-highlight-color:transparent}
+  .btn:hover{border-color:var(--warm-line);transform:translateY(-1px)}
+  .btn:active{transform:scale(.97)}
+  .btn.primary{background:linear-gradient(135deg,var(--warm),#e0a92a);border-color:transparent;
+    color:#241a02;font-weight:750;box-shadow:0 10px 24px -12px var(--warm)}
+  .btn.primary:hover{filter:brightness(1.06)}
+
+  .tips{list-style:none;display:flex;flex-direction:column;gap:10px}
+  .tips li{display:flex;gap:11px;align-items:flex-start;font-size:14.5px;color:var(--text-2);line-height:1.75}
+  .tips li::before{content:"✓";flex-shrink:0;width:20px;height:20px;margin-top:2px;border-radius:7px;
+    background:var(--brand-soft);border:1px solid var(--brand-line);color:var(--brand);
+    font-size:12px;font-weight:800;display:flex;align-items:center;justify-content:center}
+
+  .thanks{display:flex;flex-wrap:wrap;gap:9px}
+  .thanks .who{font-size:13px;color:var(--warm);background:var(--warm-soft);
+    border:1px solid var(--warm-line);border-radius:999px;padding:5px 13px}
+  .thanks .empty{font-size:13.5px;color:var(--text-3)}
+  .thanks-link{display:inline-flex;align-items:center;gap:6px;margin-top:14px;
+    font-size:13.5px;font-weight:600}
+
+  .faq{display:flex;flex-direction:column;gap:10px}
+  .faq details{background:var(--bg-elv);border:1px solid var(--divider);border-radius:13px;overflow:hidden;transition:.22s}
+  .faq details[open]{border-color:var(--warm-line)}
+  .faq summary{cursor:pointer;padding:14px 17px;font-weight:650;font-size:14.5px;
+    display:flex;align-items:center;justify-content:space-between;gap:12px;list-style:none;transition:.2s}
+  .faq summary::-webkit-details-marker{display:none}
+  .faq summary::after{content:"+";font-size:18px;font-weight:400;color:var(--warm);transition:transform .25s;flex-shrink:0}
+  .faq details[open] summary::after{transform:rotate(45deg)}
+  .faq summary:hover{color:var(--warm)}
+  .faq .ans{padding:0 17px 15px;font-size:14px;color:var(--text-2);line-height:1.8}
+
+  .foot{text-align:center;padding:40px 0 0;font-size:13px;color:var(--text-3);line-height:2}
+  .foot .line{width:180px;height:1px;margin:0 auto 20px;
+    background:linear-gradient(90deg,transparent,var(--divider),transparent)}
+  .foot .tags{display:flex;gap:6px;justify-content:center;flex-wrap:wrap;margin-top:12px}
+  .foot .tags span{background:var(--bg-soft);border:1px solid var(--divider);
+    border-radius:6px;padding:3px 10px;font-size:12px;color:var(--text-2)}
+
+  .toast{position:fixed;left:50%;bottom:30px;transform:translate(-50%,16px);
+    background:var(--text-1);color:var(--bg);font-size:13px;font-weight:650;
+    padding:10px 18px;border-radius:10px;opacity:0;pointer-events:none;
+    transition:.25s;z-index:99;max-width:84vw;text-align:center}
+  .toast.show{opacity:1;transform:translate(-50%,0)}
+  .totop{position:fixed;right:20px;bottom:22px;z-index:35;width:42px;height:42px;border-radius:12px;
+    cursor:pointer;background:var(--bg-elv);border:1px solid var(--divider);color:var(--text-2);
+    display:flex;align-items:center;justify-content:center;box-shadow:var(--shadow);
+    opacity:0;pointer-events:none;transition:.25s}
+  .totop.show{opacity:1;pointer-events:auto}
+  .totop:hover{color:var(--warm);border-color:var(--warm-line)}
+
+  .reveal{opacity:0;transform:translateY(14px);
+    transition:opacity .6s cubic-bezier(.2,.8,.25,1),transform .6s cubic-bezier(.2,.8,.25,1)}
+  .reveal.in{opacity:1;transform:none}
+
+  @media (max-width:520px){
+    .wrap{padding:0 15px 68px}
+    .card{padding:20px 17px;border-radius:14px}
+    .hero{padding:50px 12px 40px}
+    .qr{width:min(230px,62vw)}
+    h2{font-size:17px}
+    .costs{grid-template-columns:1fr}
+    .acts{flex-direction:column}
+    .btn{width:100%;justify-content:center}
+  }
+  @media (prefers-reduced-motion:reduce){
+    *{animation:none!important;transition:none!important}
+    html{scroll-behavior:auto}.reveal{opacity:1;transform:none}
+  }
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="logo">小</div>
+  <div class="site">小薇</div>
+  <div class="sp"></div>
+  <button class="icon-btn" id="themeBtn" title="切换主题" aria-label="切换主题">
+    <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+  </button>
+</nav>
+
+<div class="wrap">
+
+  <header class="hero">
+    <div class="orb orb-a"></div><div class="orb orb-b"></div><div class="orb orb-c"></div>
+    <div class="heart">💛</div>
+    <h1>赞助</h1>
+    <div class="sub">为爱发电·感谢每一份心意</div>
+    <div class="line"></div>
+  </header>
+
+  <section class="card declare">
+    <h2>声明</h2>
+    <p>小薇及我们所有官方机器人是一个完全公益、为爱发电的 QQ 机器人。这意味着机器人的所有运营成本都是自掏腰包，所有功能免费开放使用。</p><p>小薇是免费多功能的原创机器人，一直致力于为群友们提供免费且稳定的服务。但每一次 AI 的回复都是需要真实调用 API，按次收费，多少有点吃力。</p><p>如果你愿意为机器人的存活助一臂之力，帮助我们渡过难关，将非常感谢！ヽ(ﾟ∀ﾟ)ﾒ(ﾟ∀ﾟ)ﾉ</p>
+  </section>
+
+  <section class="card">
+    <h2>钱花在哪里了？</h2>
+    <div class="costs">
+      <div class="cost"><div class="ico">⚡</div><div><b>API 调用</b><span>语音、大模型，按次或者按次收费</span></div></div><div class="cost"><div class="ico">🛠️</div><div><b>持续开发</b><span>修 bug、加功能</span></div></div>
+    </div>
+  </section>
+
+  <section class="card pay">
+    <h2>赞助方式</h2>
+    <div class="qr-wrap">
+      <span class="tag">扫码 / 长按识别</span>
+      <div class="qr" id="qrBox">
+        <img id="qrImg" src="sponsor_qr.jpg" alt="赞助二维码">
+      </div>
+    </div>
+    <div class="nm">微信赞赏码</div>
+    <div class="hint">扫码或长按识别即可赞赏　·　金额随意</div>
+    <div class="acts">
+      <button class="btn primary" id="saveBtn">⬇️ 保存二维码</button>
+      <button class="btn" id="copyBtn">🔗 复制本页链接</button>
+    </div>
+  </section>
+
+  <section class="card">
+    <h2>几点说明</h2>
+    <ul class="tips">
+      <li>金额随意，一块也是心意。</li><li>赞助完全自愿，不影响任何功能的使用。</li><li>赞助属于赠与，请量力而行；如有疑问可先联系我们。</li>
+    </ul>
+  </section>
+
+  <section class="card">
+    <h2>赞助名单</h2>
+    <div class="thanks"><span class="empty">还没有人，但你可以在第一个 💛</span></div>
+    
+  </section>
+
+  <section class="card">
+    <h2>常见问题</h2>
+    <div class="faq">
+      <details open><summary>赞助后有什么特权吗？</summary><div class="ans">没有。所有功能对所有人一视同仁，赞助只是单纯的支持。</div></details><details><summary>多少金额合适？</summary><div class="ans">随意就好，一块钱也是心意。真的不用多。</div></details><details><summary>能指定用途吗？</summary><div class="ans">可以留言说明。默认用于调用 API 费用。</div></details><details><summary>怎么联系你？</summary><div class="ans">直接私聊机器人，或者联系 3697553866</div></details>
+    </div>
+  </section>
+
+  <footer class="foot">
+    <div class="line"></div>
+    <div>感谢每一位支持者，是你们让这台机器人能继续跑下去</div>
+    <div class="tags"><span>为爱发电</span><span>完全免费</span><span>无广告</span><span>持续更新</span></div>
+  </footer>
+
+</div>
+
+<div class="totop" id="totop" title="回到顶部">
+  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+</div>
+<div class="toast" id="toast"></div>
+
+<script>
+(function () {
+  var toastEl = document.getElementById('toast'), timer = null;
+  function toast(m) {
+    toastEl.textContent = m; toastEl.classList.add('show');
+    clearTimeout(timer); timer = setTimeout(function () { toastEl.classList.remove('show'); }, 1700);
+  }
+  try { var s = localStorage.getItem('sp_theme'); if (s) document.documentElement.setAttribute('data-theme', s); } catch (e) {}
+  document.getElementById('themeBtn').addEventListener('click', function () {
+    var cur = document.documentElement.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
+    document.documentElement.setAttribute('data-theme', cur);
+    try { localStorage.setItem('sp_theme', cur); } catch (e) {}
+    toast(cur === 'light' ? '已切换到浅色' : '已切换到深色');
+  });
+  document.getElementById('saveBtn').addEventListener('click', function () {
+    var img = document.getElementById('qrImg');
+    var a = document.createElement('a');
+    a.href = img.src; a.download = 'sponsor-qrcode.jpg';
+    document.body.appendChild(a); a.click(); a.remove();
+    toast('已开始保存，长按图片也可保存');
+  });
+  document.getElementById('copyBtn').addEventListener('click', function () {
+    var url = location.href;
+    function fb() {
+      var ta = document.createElement('textarea');
+      ta.value = url; ta.style.position = 'fixed'; ta.style.opacity = '0';
+      document.body.appendChild(ta); ta.select();
+      try { document.execCommand('copy'); toast('链接已复制'); } catch (e) { toast(url); }
+      ta.remove();
+    }
+    if (navigator.clipboard && window.isSecureContext) {
+      navigator.clipboard.writeText(url).then(function(){ toast('链接已复制'); }, fb);
+    } else { fb(); }
+  });
+  document.getElementById('qrBox').addEventListener('click', function () {
+    toast('长按二维码识别，或点「保存二维码」');
+  });
+  if ('IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function (es) {
+      es.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+    }, { rootMargin: '0px 0px -6% 0px', threshold: .05 });
+    document.querySelectorAll('.card').forEach(function (el, i) {
+      el.classList.add('reveal'); el.style.transitionDelay = Math.min(i * 55, 320) + 'ms'; io.observe(el);
+    });
+  }
+  var totop = document.getElementById('totop');
+  totop.addEventListener('click', function () { scrollTo({ top: 0, behavior: 'smooth' }); });
+  window.addEventListener('scroll', function () {
+    totop.classList.toggle('show', (window.scrollY || 0) > 400);
+  }, { passive: true });
+})();
+</script>
+</body>
+</html>
